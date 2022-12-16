@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <!-- Custom fonts for this template-->
+    <link href="{{ url_for('static',filename='vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet"
+          type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="{{ url_for('static',filename='css/bootstrap-select.css') }}"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+
+    <!-- Custom styles for this template-->
+    <link href="{{ url_for('static',filename='css/sb-admin-2.min.css') }}" rel="stylesheet">
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <!-- <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" /> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css">
+
+    <!-- JavaScript at end of body for optimized loading -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <!-- Materialize icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </script>
+    <script src="static/jquery.js">
+    
+    </script>
+    <script src="static/jquery2.js">
+    </script>
+ 
+    <!-- <script src="/MtechFinalProj/templates/static/jquery.js"></script> -->
+    <!-- <script src="./scripts/2jquery.js"></script> -->
+    <!-- <script src="./scripts/app.js"></script> -->
+
+</head>
+<nav class="nav-top bg-danger">
+<a href="{{url_for('add_document')}}" class="text-white">Add Document</a>
+
+</nav>
+
+
+    <body id="page-top">
+         <nav>
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo">Legal Case Document Classifcation</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+
+                <li><a href="#">Register</a></li>
+                <li><a href="controls.html">About Us</a></li>
+                
+            </ul>
+        </div>
+    </nav> 
+        <div class="row">
+            
+       
+        <div class="col-md-9">
+            <img src="{{url_for('static',filename='../static/img/images.jpg')}}" style="width: 1100px;">
+        </div> <br><br>
+        <div style="width:100px;"  class="col-md-3" style="margin-bottom: 100px;"> <br><br><br>
+            <h6 class="text-primary">Please select a file</h6>
+            <form class="form-group"  action="/predict" method="POST" enctype="multipart/form-data">
+            <label for="inputFile">Legal Case Document</label><br>
+            <input type="file" name="image">
+            <input type="file" name="image1">
+            <input type="file" name="image2">
+            <input type="file" name="image3">
+            <input type="file" name="image4">
+            
+            <br><br>
+            <input type="submit"  value="classify" class="btn btn-primary">
+        </form>
+        </div>
+    </div> <br>
+    
+    <div class="table" style= "height:600px;">
+         <table class="table-bordered table-strippeed">
+            <thead>
+                <tr>
+                    <th>Name of File</th>
+                    <th>Categorized Result</th>
+                    <th> View Documents</th>
+                </tr>
+            </thead>
+            <tbody class='text-dark font-weight-bold'>
+                <tr>
+                    <td>{{filename }}</td>
+                     {% if pred %}
+                    <td>The uploaded court case document is of {{pred }} category</td>
+                    <form class="form-group"  action="/views" method="POST" enctype="multipart/form-data">
+                     <input type="hidden" name="name", value="{{ filename }}">
+                    <td> <input type="submit" value="view" class="btn btn-primary" name="">  </td>
+                    </form>
+                    {% endif %}
+                   
+                    
+                </tr>
+                <tr>
+                    <td>{{filename1 }}</td>
+                    {% if pred1 %}
+                    <td>The uploaded court case document is of {{pred1 }} category</td>
+                    <form class="form-group"  action="/view" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="name1", value="{{ filename1 }}">
+                    <td> <input type="submit" value="view" class="btn btn-primary">  </td>
+                    </form>
+                    {% endif %}
+                </tr>
+                <tr>
+                    <td>{{filename2 }}</td>
+                     {% if pred2 %}
+                    <td>The uploaded court case document is of {{pred2 }} category</td>
+                    <form class="form-group"  action="/view1" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="name2", value="{{ filename2 }}">
+                    <td> <input type="submit" value="view" class="btn btn-primary">  </td>
+                    </form>
+                    {% endif %}
+                </tr>
+                 <tr>
+                    <td>{{filename3 }}</td>
+                     {% if pred3 %}
+                    <td>The uploaded court case document is of {{pred3 }} category}</td>
+                    <form class="form-group"  action="/view2" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="name3", value="{{ filename3 }}">
+                    <td> <input type="submit" value="view" class="btn btn-primary">  </td>
+                    </form>
+                    {% endif %}
+                </tr>
+                <tr>
+                    <td>{{filename4 }}</td>
+                     {% if pred4 %}
+                    <td>The uploaded court case document is of {{pred4 }} category</td>
+                    <form class="form-group"  action="/view3" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="name4", value="{{ filename4 }}">
+                    <td> <input type="submit" value="view" class="btn btn-primary">  </td>
+                    </form>
+                    {% endif %}
+                </tr>
+               
+            </tbody>
+         </table><br>
+         
+         <div class="may">
+             
+         </div>
+         
+    </div>
+    </div>
+    
+    </body>
+
+    </html>
