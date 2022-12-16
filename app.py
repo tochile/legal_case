@@ -75,7 +75,7 @@ mysql = MySQL(app)
 
 
 
-@app.route('/', methods=['GET'])
+@app.route('/')
 
 def index():
 
