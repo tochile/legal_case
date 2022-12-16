@@ -1,16 +1,3 @@
-# -*- coding: utf-8 -*-
-
-"""
-
-Created on Wed Oct  6 21:27:07 2021
-
-
-
-@author: PC
-
-"""
-
-
 
 from __future__ import division, print_function
 
@@ -57,9 +44,11 @@ import glob
 from flask_mysqldb import MySQL
 import yaml
 
-#import docx
-
-
+import nltk 
+nltk.download('punkt')
+nltk.download('wordnet')
+nltk.download('omw-1.4')
+nltk.download('stopwords')
 
 import string
 
@@ -70,13 +59,6 @@ import matplotlib.pyplot as plt
 from nltk.stem import WordNetLemmatizer
 
 import warnings
-
-warnings.filterwarnings('ignore')
-
-
-
-
-
 
 
 app = Flask(__name__)
