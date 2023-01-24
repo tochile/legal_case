@@ -1,7 +1,7 @@
 
 from __future__ import division, print_function
 
-from flask import Flask,render_template,url_for,request
+from flask import Flask,render_template,url_for,request,send_file
 
 from flask_bootstrap import Bootstrap
 
@@ -732,7 +732,7 @@ def view3():
         
         
         subprocess.Popen(file_path, shell=True)
-
+    return send_file(file_path, as_attachment=True)
     return  render_template('predict.html', file_path=file_path)
 
 
