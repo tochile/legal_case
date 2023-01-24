@@ -721,7 +721,7 @@ def view3():
     if request.method == 'POST':
 
         file4 = request.form["name4"]
-        filename = secure_filename(file4.filename)
+        
         
 
         basepath = os.path.dirname(__file__)
@@ -731,7 +731,7 @@ def view3():
             basepath, 'static/uploads', file4)
         
         
-        subprocess.Popen([file_path], shell=True)
+        subprocess.Popen(file_path, shell=True)
 
     return  render_template('predict.html', file_path=file_path)
 
