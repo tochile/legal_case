@@ -654,7 +654,8 @@ def views():
 
         
         subprocess.Popen([file_path], shell=True)
-
+	
+    return send_file(file_path, as_attachment=True)
     return  render_template('predict.html')
 
 @app.route('/view', methods=['POST'])
@@ -674,7 +675,8 @@ def view():
 
         
         subprocess.Popen([file_path], shell=True)
-
+	
+    return send_file(file_path, as_attachment=True)
     return  render_template('predict.html')
 
 @app.route('/view1', methods=['POST'])
@@ -693,7 +695,7 @@ def view1():
 
         
         subprocess.Popen([file_path], shell=True)
-
+    return send_file(file_path, as_attachment=True)
     return  render_template('predict.html')
 
 @app.route('/view2', methods=['POST'])
@@ -712,7 +714,8 @@ def view2():
 
         
         subprocess.Popen([file_path], shell=True)
-
+	
+    return send_file(file_path, as_attachment=True)
     return  render_template('predict.html')
 
 @app.route('/view3', methods=['POST'])
@@ -849,7 +852,7 @@ def vi():
         
         
         subprocess.Popen([file_path], shell=True)
-
+    return send_file(file_path, as_attachment=True)
     return render_template('add.html',view=view)
 
 
