@@ -656,7 +656,7 @@ def views():
         subprocess.Popen([file_path], shell=True)
 	
     return send_file(file_path, as_attachment=True)
-    return  render_template('predict.html')
+    return  render_template('predict.html', file_path=file_path)
 
 @app.route('/view', methods=['POST'])
 
