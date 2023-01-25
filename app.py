@@ -801,7 +801,7 @@ def document():
         
         file_path = os.path.join(
             
-            basepath, 'static/uploads', filename)
+            basepath, 'static/uploads', file)
 
         file.save(file_path)
         
