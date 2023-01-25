@@ -842,7 +842,6 @@ def vi():
             
 
         file = request.form['tochi']
-        filename = secure_filename(file.filename)
         
         basepath = os.path.dirname(__file__)
         file_path = os.path.join(
