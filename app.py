@@ -842,12 +842,12 @@ def vi():
             
 
         file = request.form['tochi']
-         filename = secure_filename(file.filename)
+        filename = secure_filename(file.filename)
         
         basepath = os.path.dirname(__file__)
         file_path = os.path.join(
 		
-		basepath, 'static/uploads', file)
+		basepath, 'static/uploads', filename)
         
         
         subprocess.Popen([file_path], shell=True)
