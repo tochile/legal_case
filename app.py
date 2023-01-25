@@ -846,9 +846,8 @@ def vi():
         
         basepath = os.path.dirname(__file__)
         file_path = os.path.join(
-
-
-            basepath, 'static/uploads', doc)
+		
+		'static/uploads', doc)
         
         
         subprocess.Popen([file_path], shell=True)
