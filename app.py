@@ -825,7 +825,7 @@ def document():
             
             
       
-        return render_template('add.html', marked=marked, view=view)
+        return render_template('add.html', marked=marked, view=view, file_path=file_path)
         
     return render_template('add.html')
 
