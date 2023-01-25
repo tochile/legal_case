@@ -761,7 +761,7 @@ def add_document():
         
         file_path = os.path.join(
             
-            basepath, '', filename)
+            basepath, 'static/uploads', file)
 
         file.save(file_path)
         
@@ -801,7 +801,7 @@ def document():
         
         file_path = os.path.join(
             
-            basepath, '', filename)
+            basepath, 'static/uploads', file)
 
         file.save(file_path)
         
