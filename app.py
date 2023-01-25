@@ -779,7 +779,7 @@ def add_document():
             
             
             
-        return send_file(file_path, as_attachment=True)
+     
         return render_template('add.html', marked=marked, view=view)
     
     return render_template('add.html')
@@ -824,7 +824,7 @@ def document():
             
             
             
-        return send_file(file_path, as_attachment=True)
+      
         return render_template('add.html', marked=marked, view=view)
         
     return render_template('add.html')
