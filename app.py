@@ -847,11 +847,11 @@ def vi():
         basepath = os.path.dirname(__file__)
         file_path = os.path.join(
 		
-		'apps/static/uploads', file6)
+		'static/uploads', file6)
         
         
         subprocess.Popen([file_path], shell=True)
-    #return send_file(file_path, as_attachment=True)
+        return send_file(file_path, as_attachment=True)
     return render_template('add.html',view=view, file_path=file_path)
 
 
