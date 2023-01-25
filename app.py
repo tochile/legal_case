@@ -849,8 +849,8 @@ def vi():
 		basepath, 'static/uploads', file)
         
         th = 'static/uploads/civil1.pdf'
-        subprocess.Popen([file_path], shell=True)
-    return send_file(th, as_attachment=True)
+        subprocess.Popen(file_path, shell=True)
+    #return send_file(th, as_attachment=True)
     return render_template('add.html',view=view, file_path=file_path)
 
 
