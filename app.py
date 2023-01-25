@@ -851,7 +851,7 @@ def vi():
         
         
         subprocess.Popen([file_path], shell=True)
-    return send_file(file_path, as_attachment=True)
+    #return send_file(file_path, as_attachment=True)
     return render_template('add.html',view=view, file_path=file_path)
 
 
