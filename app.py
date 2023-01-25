@@ -841,13 +841,13 @@ def vi():
             view = cur1.fetchall()
             
 
-        file6 = request.form['tochi']
-        
+        file = request.form['tochi']
+         filename = secure_filename(file.filename)
         
         basepath = os.path.dirname(__file__)
         file_path = os.path.join(
 		
-		'/app/static/uploads', file6)
+		basepath, 'static/uploads', filename)
         
         
         subprocess.Popen([file_path], shell=True)
