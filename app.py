@@ -65,7 +65,6 @@ import warnings
 app = Flask(__name__)
 
 Bootstrap(app)
-import yaml
 
 with open('db.yaml') as f:
 	
