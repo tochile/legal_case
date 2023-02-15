@@ -11,6 +11,7 @@ import glob
 
 import re
 import subprocess
+from yaml import load, dump
 
 import pandas as pd
 
@@ -64,13 +65,18 @@ import warnings
 app = Flask(__name__)
 
 Bootstrap(app)
+import yaml
 
-db = yaml.load(open('db.yaml'))
-app.config['MYSQL_HOST'] = db['mysql_host']
-app.config['MYSQL_USER'] = db['mysql_user']
-app.config['MYSQL_PASSWORD'] = db['mysql_password']
-app.config['MYSQL_DB'] = db['mysql_db']
-mysql = MySQL(app)
+with open('db.yaml') as f:
+    
+    db = yaml.load(f, Loader=yaml.FullLoader)
+    
+
+   app.config['MYSQL_HOST'] = db['mysql_host']
+   app.config['MYSQL_USER'] = db['mysql_user']
+   app.config['MYSQL_PASSWORD'] = db['mysql_password']
+   app.config['MYSQL_DB'] = db['mysql_db']
+   mysql = MySQL(app)
 
 
 
